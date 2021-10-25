@@ -64,7 +64,7 @@ class DataTest extends PHPUnit_Framework_TestCase
         // generate output
         /** @var KeenMVC\App $keen */
         $keen = KeenMVC\App::load("lib/keen_test_environment_config.ini.php");
-        $pageOut = $keen->run(true);
+        $pageOut = @$keen->run(true); // we suppress errors here to avoid failures caused by error logging
         // Create DOM elements
         $pageOutput = new DOMDocument();
         $pageOutput->preserveWhiteSpace = false;
